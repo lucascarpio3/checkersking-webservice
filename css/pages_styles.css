@@ -1,0 +1,451 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face{
+	font-family: "Baskerville Old Face";
+	src: url("../fonts/BASKVILL.TTF");
+}
+
+body{
+	background-image: url("../imgs/background.jpg");
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	font-family: "Baskerville Old Face";
+}
+#content_index{
+	position: fixed;
+	width: 725px;
+	height:730px;
+	top: 50%;
+	left: 50%;
+	margin-left: -362px;
+	margin-top: -365px;
+	background-image: url("../imgs/CheckersKing.png");
+}
+
+.rounded{
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+}
+
+.gamersTab{
+	background-color: #c0905e;
+	width: 200px;
+	height: 500px;
+	position: fixed;	
+}
+
+#gameTopBar{
+	width: 100%;
+	height: 30px;
+	position: fixed;
+	left: 0;
+	top:0;
+	background-color: #D28A3E;
+	z-index: 1;
+	padding: 5px;
+	text-align: right;
+}
+
+.box{
+	width: 204px;
+	height: 530px;
+	top: 50%;
+	position: fixed;
+	margin:10px;
+	margin-top: -265px;
+	
+	background: rgba(0, 0, 0, .5);
+	border: 2px solid rgb(190, 112, 41);
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	
+}
+
+.box-header{
+	width: 100%;
+	height: 38px;
+	background-image: url("../imgs/box-header.jpg");
+	background-repeat: repeat-x;
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-topright: 4px;
+	-webkit-border-top-left-radius: 4px;
+	-webkit-border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	
+	text-align: center;
+	font-family: "DaunPenh";
+	font-size: 25px;
+	line-height:50px;
+	color:#4b0304;
+}
+
+.userbar{
+	width: 420px;
+	height: 46px;
+	background-image: url("../imgs/userbar.jpg");
+	background-repeat: repeat-x;
+	position: fixed;
+	left: 50%;
+	margin: 0;
+	margin-left: -210px;
+	
+	font-size: 16pt;
+	font-weight: bold;
+	line-height: 50px;
+	padding-left: 5px;
+}
+
+div[name="top"]{
+	-moz-border-radius-bottomleft: 10px;
+	-moz-border-radius-bottomright: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+div[name="bottom"]{
+	-moz-border-radius-tleft: 10px;
+	-moz-border-radius-topright: 10px;
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+#home{
+	position: absolute;
+	right: 3px;
+	margin: 12px;
+	background-color: #f4a858;
+	padding: 3px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	border: 1px inset #f8b063;
+	cursor: pointer;
+	z-index: 10;
+}
+#page{
+	width: 600px;
+	height: 100%;
+	background-color: #d28a3e;
+	position: fixed;
+	top: 0;
+	left: 50%;
+	margin-left: -300px;
+}
+#header{
+	widows: 100%;
+	height: 101px;
+	background-image: url("../imgs/headerbar.jpg");
+	background-repeat: repeat-x;
+	font-family: "Gabriola";
+	font-size: 94px;
+	color: #fff;
+	line-height: 150px;
+	text-align: center;
+	text-shadow: -3px 0 #150000, 0 3px #150000, 3px 0 #150000, 0 -3px #150000;
+}
+#menu-bar{
+	width: 100%;
+	height: 32px;
+	background-image: url("../imgs/loginbar.jpg");
+	background-repeat: repeat-x; 
+}
+
+#acesso{
+	width: 96px;
+	height: 32px;
+	float: right;
+	font-family: "Cooper Black";
+	font-size: 22px;
+	text-align:center;
+	line-height: 30px;
+	color: #fff;
+	text-shadow: -2px 0 #150000, 0 2px #150000, 2px 0 #150000, 0 -2px #150000;
+}
+
+#acesso:active{
+	width: 96px;
+	height: 32px;
+	float: right;
+	font-family: "Cooper Black";
+	font-size: 22px;
+	text-align:center;
+	line-height: 30px;
+	color: #fff;
+	text-shadow: -2px 0 #150000, 0 2px #150000, 2px 0 #150000, 0 -2px #150000;
+	border-left: 2px solid #4a0505;
+	background-color: rgba(86, 0, 0, .5);
+}
+#acesso:hover{
+	cursor:pointer;
+}
+
+#content{
+	width: 100%;
+	height: 100%;
+}
+
+#login-content-form{
+	display: none;
+	float:right;
+	background-color: rgb(86, 0, 0);
+	padding: 5px;
+	-moz-border-radius-bottomleft:4px;
+	-webkit-border-bottom-left-radius:4px;
+	border-bottom-left-radius:4px;
+}
+
+input{
+	color: #666;
+}
+
+#login-content-form div{
+	color:#fff;
+	border-top: 1px solid #4B0300;
+	width: 80px;
+	height: 20px;
+	margin: 0px;
+	padding: 3px;
+}
+
+#login-content-form div:hover{
+	color:#fff;
+	border-top: 1px solid #4B0300;
+	width: 80px;
+	height: 20px;
+	margin: 0px;
+	padding: 3px;
+	color: #D28A3E;
+	cursor:pointer;
+}
+
+.popup_login{
+	display: none;
+	width:300px;
+	position:absolute;
+	left: 50%;
+	top: 50%;
+	margin-top: -50px;
+	margin-left: -150px;
+	background-color: #4B0304;
+	border-radius: 8px;
+	box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+	border:2px solid #310101;
+}
+
+.popup_login_title{
+	background-color: #310101;
+	color:#D28A3E;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	text-align: center;
+	font-size: 16px;
+	padding: 2px;
+}
+
+label{
+	color:#D28A3E;
+}
+
+#bottom_submit{
+	position:relative;
+	bottom: 0;
+}
+
+#user_conteiner{
+	width: 100%;
+	height: 492px;
+	overflow-y: auto;
+}
+
+div.online{
+	width: 98%;
+	border-left:	1px solid #f8b063;
+	border-top:		1px solid #f8b063;
+	border-bottom:	1px solid #6b3300;
+	border-right:	1px solid #6b3300;
+	margin: 0px auto;
+	color: #310101;
+	background-color: #d28a3e;
+}
+
+
+div.online:hover{
+	width: 98%;
+	border-left:	1px solid #fac892;
+	border-top:		1px solid #fac892;
+	border-bottom:	1px solid #98714d;
+	border-right:	1px solid #98714d;
+	margin: 0px auto;
+	color: #310101;
+	background-color: #e0ad78;
+	cursor: pointer;
+}
+
+div.online:active{
+	width: 98%;
+	border-left:	1px solid #6b3300;
+	border-top:		1px solid #6b3300;
+	border-bottom:	1px solid #f8b063;
+	border-right:	1px solid #f8b063;
+	margin: 0px auto;
+	color: #310101;
+	background-color: #bd7c38;
+}
+
+div.online img{
+	width: 30px;
+	height: 30px;
+	border:1px inset #f8b063;
+	margin: 4px;
+	vertical-align: middle;
+}
+
+#avatar_area_exclusiva img{
+	width: 107%;
+	height: 107%;
+	border-radius: 8px;
+	margin: 0px auto;
+	top: -3px;
+	left: -3px;
+	position: relative;
+}
+
+#menu_action_portal{
+	position: fixed;
+	right: 0;
+}
+
+#menu_action_portal span{
+	color:#aaa;
+	font-size: 14pt;
+	padding: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
+	cursor: pointer;
+	border-left: 1px solid #aaa;
+	
+	
+}
+
+#menu_action_portal span:hover{
+	color:#d28a3e;
+	border-color: #d28a3e;
+	background-color: rgba(255,255,255,0.1);
+}
+
+#entrar{
+	position: absolute;
+	color:#4d2505;
+	font-size: 200%;
+	background-color: #b85f00;
+	border: 2px solid #cc6a00;
+	border-radius: 20px;
+	padding: 7px;
+	box-shadow: 2px 2px 5px #000;
+	cursor: pointer;
+	left: 200px;
+	right: 200px;
+	bottom: 120px;
+	text-align: center;
+}
+
+#cadastrar{
+	position: absolute;
+	color:#4d2505;
+	font-size: 200%;
+	background-color: #b85f00;
+	border: 2px solid #cc6a00;
+	border-radius: 20px;
+	padding: 7px;
+	box-shadow: 2px 2px 5px #000;
+	cursor: pointer;
+	left: 200px;
+	right: 200px;
+	bottom: 50px;
+	text-align: center;
+}
+
+#entrar:hover, #cadastrar:hover{
+	background-color: #c36d00;
+	color: #432200;
+	border-color: #d47a00;
+}
+
+.grayscale{
+	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+ */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(100%); /* Google Chrome & Safari 6+ */
+}
+
+.userbar span{
+	position: absolute;
+	font-size: 12pt;
+	line-height: 12pt;
+	right: 0px;
+	box-align: center;
+	margin: 15px;
+}
+
+.userbar span img{
+	width: 20px;
+	vertical-align: text-bottom;
+}
+.userbar span label{
+	width: 20px;
+	padding-right: 5px; 
+	color: #000;
+}
+/*-JOGADORES-EM-JOGO------------------------*/
+div.emjogo {
+	width: 98%;
+	border-left:	1px solid #f86363;
+	border-top:		1px solid #f86363;
+	border-bottom:	1px solid #6b0004;
+	border-right:	1px solid #6b0004;
+	margin: 0px auto;
+	color: #31011a;
+	background-color: #d23e3f;
+}
+
+div.emjogo:hover{
+	width: 98%;
+	border-left:	1px solid #fa9292;
+	border-top:		1px solid #fa9292;
+	border-bottom:	1px solid #984d50;
+	border-right:	1px solid #984d50;
+	margin: 0px auto;
+	color: #310101;
+	background-color: #e07879;
+	cursor: pointer;
+}
+
+div.emjogo:active{
+	width: 98%;
+	border-left:	1px solid #6b3300;
+	border-top:		1px solid #6b3300;
+	border-bottom:	1px solid #f8b063;
+	border-right:	1px solid #f8b063;
+	margin: 0px auto;
+	color: #310101;
+	background-color: #bd7c38;
+}
+
+div.emjogo img{
+	width: 30px;
+	height: 30px;
+	border:1px inset #f86363;
+	margin: 4px;
+	vertical-align: middle;
+}
+/*--------------------------------------------*/
