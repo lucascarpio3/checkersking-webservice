@@ -1,6 +1,7 @@
 <!DOCTYPE HTML >
 <html>
 	<head>
+        <meta charset="utf-8">
 		<link rel="stylesheet" href="css/pages_styles.css" />
 		<script src="js/jquery-1.8.1.js"></script>
 		<script src="js/script_game.js"></script>

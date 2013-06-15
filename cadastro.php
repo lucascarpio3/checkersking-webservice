@@ -55,8 +55,23 @@
 		//---------------------
 				$con = mysql_connect(DB::$dbOptions['db_host'],DB::$dbOptions['db_user'],DB::$dbOptions['db_pass']);
 				mysql_select_db(DB::$dbOptions['db_name'], $con);
-				mysql_query("INSERT INTO `jogador`(`nome`, `senha`, `email`, `data_nascimento`, `status`,`avatarlink`) VALUES ('".$_POST['cadastro_jogador']."','".md5($_POST['cadastro_senha'])."','".$_POST['email']."','".$_POST['datanasc']."',1,'".$nome_imagem."')");
-				$_SESSION['usuarioID'] = mysql_insert_id();
+
+                echo strtotime(str_replace("/","-",$_POST['datanasc']));
+
+                /**
+                 * Validação de data de nascimento
+                 */
+
+                $dataUnformatted = $_POST['datanasc'];
+                $dataFormatted = str_replace('/','-',$dataUnformatted);
+                $timestamp = strtotime($dataFormatted);
+                echo date("Y-m-d", $timestamp);
+
+				mysql_query("INSERT INTO `jogador`(`nome`, `senha`, `email`, `data_nascimento`, `status`,`avatarlink`)
+				    VALUES ('".$_POST['cadastro_jogador']."','".md5($_POST['cadastro_senha'])."','"
+                    .$_POST['email']."','". date("Y-m-d", $timestamp)."',1,'".$nome_imagem."')");
+
+                $_SESSION['usuarioID'] = mysql_insert_id();
 				mysql_close($con);
 			}
 		}else{
