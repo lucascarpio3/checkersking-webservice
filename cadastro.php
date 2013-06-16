@@ -100,11 +100,11 @@
 				header("Location: game.php");
 				
 			}else{
-				expulsaVisitante();
+				expulsaVisitante(null);
 				return false;
 			}
 	}else{
-		expulsaVisitante();
+		expulsaVisitante(null);
 		return false;
 	}
 ?>

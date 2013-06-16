@@ -118,9 +118,9 @@ function expulsaVisitante($error) {
 	// Remove as vari�veis da sess�o (caso elas existam)
 	unset($_SESSION['usuarioID'], $_SESSION['usuarioNome'], $_SESSION['usuarioLogin'], $_SESSION['usuarioSenha']);
 	
-	//if(isset($error)){
+	if($error != null){
 		$_SESSION['error'] = $error;
-	//}
+	}
 	
 	// Manda pra tela de login
 	header("Location: ".$_SG['paginaLogin']);

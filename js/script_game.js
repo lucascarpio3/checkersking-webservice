@@ -74,7 +74,21 @@ $(document).ready(function(){
 	    	emailaddressVal.val('').focus();
 	    }
 	});
-	
+
+    $("#form_cadastro").submit(function(){
+        regEx_Ext = /^(19|20)\d\d([- /.])(0[1-9]|1[012])\2(0[1-9]|[12][0-9]|3[01])$/;
+        regEx_Br = /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/;
+        date = $("[name='datanasc']");
+        if(regEx_Br.test(date.val())) {
+            splited = date.val().split(/[- /.]/);
+            date.val(splited[2]+"-"+splited[1]+"-"+splited[0]);
+        }
+        alert(date.val());
+        if(!regEx_Ext.test(date.val())){
+            return false
+        }
+
+    });
 });
 
 function returnError(p){
