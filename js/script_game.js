@@ -87,7 +87,6 @@ $(document).ready(function(){
         if(!regEx_Ext.test(date.val())){
             return false
         }
-
     });
 });
 
