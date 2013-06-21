@@ -83,7 +83,6 @@ $(document).ready(function(){
             splited = date.val().split(/[- /.]/);
             date.val(splited[2]+"-"+splited[1]+"-"+splited[0]);
         }
-        alert(date.val());
         if(!regEx_Ext.test(date.val())){
             return false
         }
