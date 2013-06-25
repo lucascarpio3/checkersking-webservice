@@ -3,38 +3,44 @@
 var TURNO = 0;
 var TOMADA_OBRIGATORIA = false;
 var RELOAD = window.location.reload;
+var pecas = new Pecas();
+
 function allowDrop(ev){
 	ev.preventDefault();
 }
 function drag(ev){
-	ev.dataTransfer.setData("Text",ev.target.id);
+	ev.dataTransfer.setData("PECA_ID",ev.target.id);
 }
+
 function drop(ev){
-	var data = ev.dataTransfer.getData("Text");
+	var peca_id = ev.dataTransfer.getData("PECA_ID");
 	if(!TOMADA_OBRIGATORIA){ //Se não há tomadas obrigatórias qualquer peça pode ser movida
-		if(((data.charAt(0) == 'b'&& TURNO == 0) || (data.charAt(0) == 'p' && TURNO == 1)) && validaMovimentoPeca(data,ev)){
+		if(validaPecaPorTurno(peca_id) && validaMovimentoPeca(peca_id,ev)){
 			ev.preventDefault();
-			element = document.getElementById(data);
+			element = document.getElementById(peca_id);
 			element.id = element.id.charAt(0)+ev.target.id;
 			deSelecionarPeca(element);
 			ev.target.appendChild(element);
 			setDama(element);
-			TURNO = Math.abs(TURNO-1);
-			mudarTurnoEmFoco()
+            passaTurno(element);
+			mudarTurnoEmFoco();
+
+
+
 			//FUNÇÃO QUE GRAVA MOVIMENTOS EM ARQUIVO
 			
 			$.ajax({
 				url:'php-pages/ajax.php?action=movimentoTabuleiro',
 				type:'POST',
-				data:{tipo: 'M',idOrigem: data, idDestino: ev.target.id},
-				dataType: 'json',
+				data:{tipo: 'M',idOrigem: peca_id, idDestino: ev.target.id},
+				dataType: 'json'
 			});
 			
 		}
-	}else if(document.getElementById(data).getAttribute('data-selecionada') == "true" && validaTomada(data,ev)){ //Caso haja tomadas obrigatórias apenas uma das peças selecionadas deve ser movida
+	}else if(document.getElementById(peca_id).getAttribute('data-selecionada') == "true" && validaTomada(peca_id,ev)){ //Caso haja tomadas obrigatórias apenas uma das peças selecionadas deve ser movida
 		
 		ev.preventDefault();
-		element = document.getElementById(data);
+		element = document.getElementById(peca_id);
 		element.id = element.id.charAt(0)+ev.target.id;
 		deSelecionarPeca(element);
 		ev.target.appendChild(element);
@@ -46,15 +52,24 @@ function drop(ev){
 		$.ajax({
 				url:'php-pages/ajax.php?action=movimentoTabuleiro',
 				type:'POST',
-				data:{jogador: $('#jogador').attr('data-jogadorid'), tipo: 'T',idOrigem: data, idDestino: ev.target.id},
-				dataType: 'json',
+				data:{jogador: $('#jogador').attr('data-jogadorid'), tipo: 'T',idOrigem: peca_id, idDestino: ev.target.id},
+				dataType: 'json'
 			});
 		if(!TOMADA_OBRIGATORIA){
 			setDama(element);
 			TURNO = Math.abs(TURNO-1);
+
+            pecas.executa(function(){
+                pecas.mapeamento();
+            });
 			mudarTurnoEmFoco();
 		}
-	}deSelecionarPeca(document.getElementById(data));
+	}else return false;
+	deSelecionarPeca(document.getElementById(peca_id));
+}
+
+function validaPecaPorTurno(peca_id){
+    return ((peca_id.charAt(0) == 'b'&& TURNO == 0) || (peca_id.charAt(0) == 'p' && TURNO == 1));
 }
 
 function validaMovimentoPeca(idPeca,ev){
@@ -236,6 +251,7 @@ function certificaTomada(idPeca){
 			}
 		}
 	}
+    return false;
 }
 function certificaCampoParaTomada(tomadora,campoAtomar){
 	try{
@@ -325,3 +341,49 @@ function setDama(peca){
 		deSelecionarPeca(peca);
 	}
 }
+
+/**
+ * GERENCIA DE FINALIZAÇÃO DE JOGO
+ * @author: Lucas Cárpio
+ */
+
+function Pecas(){
+    var brancas = 0;
+    var pretas = 0;
+    var damas_brancas = 0;
+    var damas_pretas = 0;
+
+    this.mapeamento = function(){
+        $("#tabuleiro").each(function(index){
+            if(this.get(index).attr("id") == 'b'){
+                brancas++;
+            }else if(this.get(index).attr("id") == 'p'){
+                pretas++;
+            }
+        });
+    }
+
+    this.toString = function(){
+        return "brancas: "+ brancas.length + ",pretas: "+pretas + ",damas_brancas: " + damas_brancas+ ", dasmas_pretas: " + damas_pretas;
+    }
+
+    this.executa = function(funcao){
+      funcao();
+    };
+}
+
+function gerenciarFimDeJogo(){
+    mapeamentoDePecas()
+}
+
+function mapeamentoDePecas(){
+    $("#tabuleiro").each(function(index){
+        this.separacao(this);
+    });
+
+    this.separacao= function(peca_id){
+        $()
+    }
+}
+
+
