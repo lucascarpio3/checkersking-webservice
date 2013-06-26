@@ -23,9 +23,6 @@ function drop(ev){
 			ev.target.appendChild(element);
 			setDama(element);
             passaTurno(element);
-			mudarTurnoEmFoco();
-
-
 
 			//FUNÇÃO QUE GRAVA MOVIMENTOS EM ARQUIVO
 			
@@ -327,13 +324,7 @@ function passaTurno(peca){
 	console.log("-----------------------------------------------------");
 }
 function mudarTurnoEmFoco(){
-	if($("#gamer").hasClass("grayscale")){
-		$("#gamer").removeClass("grayscale");
-		$("#oponent").addClass("grayscale");
-	}else{
-		$("#oponent").removeClass("grayscale");
-		$("#gamer").addClass("grayscale");
-	}
+	$("#oponent,#gamer").toggleClass("grayscale");
 }		
 function setDama(peca){
 	if(peca.id.charAt(0) == 'b' && peca.id.charAt(1) == '0' || peca.id.charAt(0) == 'p' && peca.id.charAt(1) == '7'){
