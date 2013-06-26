@@ -9,11 +9,10 @@
 */
 
 function createTable(){
-	echo "<script>
+	/*echo "<script>
 			$('#tabuleiro').load('ajax/test.html', function() {
-	  			focusTurno();
-			});
-		</script>";
+	  			focoTurno();
+		</script>";*/
 	echo "<div class='tabuleiro' id='tabuleiro'>";
 	if($_SESSION['jogo']['turno_de_jogada'] == 0){
 		for($i=0;$i<8;$i++){
@@ -51,7 +50,7 @@ function createTable(){
 	}
 	echo '</div>';
 	if($_SESSION['jogo']['turno_de_jogada'] == 0){
-		echo "<div id=\"oponent\" name=\"top\" class=\"userbar\" style=\"top: 0;\">".$_SESSION['jogo']['oponent'].
+		echo "<div id=\"oponent\" name=\"top\" class=\"userbar grayscale\" style=\"top: 0;\">".$_SESSION['jogo']['oponent'].
 			"<span>Peças tomadas: <img id=\"pecas_tomadas_op\" src=\"imgs/peca_branca.png\"> <label id=\"count\">0</label></span>"
 		."</div>";
 	echo "<div id=\"gamer\" name=\"bottom\" class=\"userbar\" style=\"bottom: 0;\">".$_SESSION['usuarioNome'].
@@ -61,7 +60,7 @@ function createTable(){
 		echo "<div id=\"oponent\" name=\"top\" class=\"userbar\" style=\"top: 0;\">".$_SESSION['jogo']['oponent'].
 			"<span>Peças tomadas: <img id=\"pecas_tomadas_op\" src=\"imgs/peca_preta.png\"> <label id=\"count\">0</label></span>"
 		."</div>";
-	echo "<div id=\"gamer\" name=\"bottom\" class=\"userbar\" style=\"bottom: 0;\">".$_SESSION['usuarioNome'].
+	echo "<div id=\"gamer\" name=\"bottom\" class=\"userbar grayscale\" style=\"bottom: 0;\">".$_SESSION['usuarioNome'].
 		 	"<span>Peças tomadas: <img id=\"pecas_tomadas_me\" src=\"imgs/peca_branca.png\"> <label id=\"count\">0</label></span>"
 	     ."</div>";
 	}
