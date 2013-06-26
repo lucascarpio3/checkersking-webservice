@@ -15,7 +15,7 @@
 			// Altura m�xima em pixels
 			$altura = 300;
 			// Tamanho m�ximo do arquivo em bytes
-			$tamanho = 50000;
+			$tamanho = 314572800;
 	 
 	    	// Verifica se o arquivo � uma imagem
 	    	if(!preg_match("/^image\/(pjpeg|jpeg|png|gif|bmp)$/", $foto["type"])){
@@ -26,7 +26,7 @@
 			$dimensoes = getimagesize($foto["tmp_name"]);
 	 
 			// Verifica se a largura da imagem � maior que a largura permitida
-			if($dimensoes[0] > $largura) {
+			/*if($dimensoes[0] > $largura) {
 				$error[2] = "A largura da imagem não deve ultrapassar ".$largura." pixels";
 			}
 	 
@@ -34,7 +34,8 @@
 			if($dimensoes[1] > $altura) {
 				$error[3] = "Altura da imagem não deve ultrapassar ".$altura." pixels";
 			}
-	 
+	        */
+
 			// Verifica se o tamanho da imagem � maior que o tamanho permitido
 			if($foto["size"] > $tamanho) {
 	   		 	$error[4] = "A imagem deve ter no máximo ".$tamanho." bytes";
@@ -52,7 +53,7 @@
 				// Faz o upload da imagem para seu respectivo caminho
 				move_uploaded_file($foto["tmp_name"], $caminho_imagem);
 				
-		//---------------------
+		        //---------------------
 				$con = mysql_connect(DB::$dbOptions['db_host'],DB::$dbOptions['db_user'],DB::$dbOptions['db_pass']);
 				mysql_select_db(DB::$dbOptions['db_name'], $con);
 

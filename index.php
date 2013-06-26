@@ -66,7 +66,7 @@
 							<label>Senha: </label>
 						</td>	
 						<td>
-							<input type='password' name='cadastro_senha' />
+							<input type='password' pattern=".{6,}" placeholder="mais que 6 caracteres" name='cadastro_senha' />
 						</td>
 					</tr>
 					<tr>
@@ -89,12 +89,12 @@
 							<label>data de nasc.</label>
 						</td>
 						<td>
-							<input type="date" name="datanasc" />
+							<input type="date" name="datanasc" maxlength="10" pattern=".{8,10}" placeholder="dd/mm/aaaa" />
 						</td>
 					</tr>
 					<tr>
 						<td colspan="2" align="center">
-							<input type="file" name="foto" />
+							<input type="file" name="foto" max-size=314572800 placeholder="Foto do perfil" />
 						</td>
 					</tr>
 					<tr>
